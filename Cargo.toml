@@ -1,0 +1,16 @@
+[workspace]
+members = ["leader", "ops", "worker1", "worker2"]
+
+[workspace.package]
+name = "test_proj_dis"
+version = "0.1.0"
+edition = "2021"
+
+[workspace.dependencies]
+paladin-core = { path = "../paladin/paladin-core" }
+tokio = { version = "1.38.0", features = ["full"] }
+anyhow = "1.0.86"
+uuid = "1.10.0"
+serde = "1.0.203"
+
+ops = { path = "ops" }

@@ -1,0 +1,7 @@
+[package]
+name = "ops"
+edition.workspace = true
+
+[dependencies]
+paladin-core = { workspace = true }
+serde = { workspace = true }

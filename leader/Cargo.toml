@@ -1,0 +1,11 @@
+[package]
+name = "leader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+paladin-core = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+ops = { workspace = true }
+uuid = { workspace = true }

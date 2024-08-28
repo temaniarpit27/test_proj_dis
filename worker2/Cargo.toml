@@ -1,0 +1,12 @@
+[package]
+name = "worker2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+paladin-core = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+uuid = { workspace = true }
+
+ops = { workspace = true }
