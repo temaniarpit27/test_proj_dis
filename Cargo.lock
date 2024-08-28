@@ -1212,7 +1212,6 @@ dependencies = [
  "ops",
  "paladin-core",
  "tokio",
- "uuid",
 ]
 
 [[package]]
@@ -1451,6 +1450,7 @@ dependencies = [
  "paladin-opkind-derive",
  "pin-project",
  "postcard",
+ "rand",
  "serde",
  "thiserror",
  "tokio",
@@ -2654,7 +2654,6 @@ dependencies = [
  "ops",
  "paladin-core",
  "tokio",
- "uuid",
 ]
 
 [[package]]
@@ -2665,7 +2664,6 @@ dependencies = [
  "ops",
  "paladin-core",
  "tokio",
- "uuid",
 ]
 
 [[package]]

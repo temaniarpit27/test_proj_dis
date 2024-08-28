@@ -10,7 +10,6 @@ edition = "2021"
 paladin-core = { path = "../paladin/paladin-core" }
 tokio = { version = "1.38.0", features = ["full"] }
 anyhow = "1.0.86"
-uuid = "1.10.0"
 serde = "1.0.203"
 
 ops = { path = "ops" }

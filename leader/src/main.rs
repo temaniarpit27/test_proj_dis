@@ -3,27 +3,31 @@ use ops::register;
 use ops::{FibAt1, FibAt2, Mul, Sum};
 use paladin::directive::{indexed_stream::IndexedStream, Directive};
 use paladin::runtime::Runtime;
-use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let mut paladin_args1 = paladin::config::Config::default();
-    paladin_args1.task_bus_routing_key =
-        Some(Uuid::parse_str("67e55044-10b1-426f-9247-bb680e5fe0c8")?);
+    paladin_args1.task_bus_routing_key = Some("worker1".to_string());
     paladin_args1.amqp_uri = Some("amqp://localhost:5672".to_string());
+    println!("paladin_args1: {:?}", paladin_args1);
     let mut paladin_args2 = paladin::config::Config::default();
-    paladin_args2.task_bus_routing_key =
-        Some(Uuid::parse_str("67e55044-10b1-426f-9247-bb680e5fe0c7")?);
+    paladin_args2.task_bus_routing_key = Some("worker2".to_string());
     paladin_args2.amqp_uri = Some("amqp://localhost:5672".to_string());
+    println!("paladin_args1: {:?}", paladin_args1);
     let runtime1 = Runtime::from_config(&paladin_args1, register()).await?;
     let runtime2 = Runtime::from_config(&paladin_args2, register()).await?;
+    println!("runtime1:");
+    println!("runtime2:");
 
     let stream = IndexedStream::from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     // Compute the fibonacci number at each element in the stream with our
     // previously declared `FibAt1` operation.
+    println!("stream");
     let fibs = stream.map(&FibAt1);
     // Sum the fibonacci numbers.
+    println!("fibs");
     let sum = fibs.fold(&Sum);
+    println!("sum");
 
     // Run the computation.
     let result = sum.run(&runtime1).await;
